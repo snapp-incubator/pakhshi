@@ -8,3 +8,6 @@ broker so you will publish on all cluster and your client is connected to one th
 ## How?
 This library use [paho](https://github.com/eclipse/paho.mqtt.golang) in the background so you can easily change your applications to use this instead of paho.
 It trying to implement all paho interfaces.
+
+## Credits
+Based on idea of [Ahmad Anvari](https://github.com/anvari1313).
