@@ -8,15 +8,8 @@ services:
       EMQX_NAME: instance-1
       EMQX_LOADED_PLUGINS: "emqx_management,emqx_dashboard"
     ports:
-      - 5369:5369
-      - 6369:6369
-      - 8080:8080
-      - 8083:8083
-      - 8084:8084
-      - 8883:8883
       - 1883:1883
       - 18083:18083
-      - 11883:11883
 
   instance-2:
     image: emqx/emqx:latest
@@ -25,12 +18,5 @@ services:
       EMQX_NAME: instance-2
       EMQX_LOADED_PLUGINS: "emqx_management,emqx_dashboard"
     ports:
-      - 5369:5369
-      - 6369:6369
-      - 8080:8080
-      - 8083:8083
-      - 8084:8084
-      - 8883:8883
-      - 1883:1883
-      - 18083:18083
-      - 11883:11883
+      - 1884:1883
+      - 18084:18083
