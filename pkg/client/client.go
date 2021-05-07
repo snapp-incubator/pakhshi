@@ -119,5 +119,5 @@ func (*Client) AddRoute(topic string, callback mqtt.MessageHandler) {
 // OptionsReader returns a ClientOptionsReader which is a copy of the clientoptions
 // in use by the client.
 func (*Client) OptionsReader() mqtt.ClientOptionsReader {
-	return nil
+	return mqtt.ClientOptionsReader{}
 }
