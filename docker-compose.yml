@@ -3,7 +3,6 @@ version: '3.7'
 services:
   instance-1:
     image: emqx/emqx:latest
-    container_name: herald-emqx
     environment:
       EMQX_NAME: instance-1
       EMQX_LOADED_PLUGINS: "emqx_management,emqx_dashboard"
@@ -13,7 +12,6 @@ services:
 
   instance-2:
     image: emqx/emqx:latest
-    container_name: herald-emqx
     environment:
       EMQX_NAME: instance-2
       EMQX_LOADED_PLUGINS: "emqx_management,emqx_dashboard"
