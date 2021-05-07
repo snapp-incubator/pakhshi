@@ -1,8 +1,7 @@
 package client
 
 import (
-	"log"
-
+	"github.com/1995parham/pakhshi/pkg/token"
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 )
 
@@ -40,26 +39,39 @@ type Client struct {
 
 // IsConnected returns a bool signifying whether
 // the client is connected or not.
-func (*Client) IsConnected() bool {
-	return false
+func (c *Client) IsConnected() bool {
+	result := true
+
+	for _, client := range c.Clients {
+		result = result && client.IsConnected()
+	}
+
+	return result
 }
 
 // IsConnectionOpen return a bool signifying whether the client has an active
 // connection to mqtt broker, i.e not in disconnected or reconnect mode.
-func (*Client) IsConnectionOpen() bool {
-	return false
+func (c *Client) IsConnectionOpen() bool {
+	result := true
+
+	for _, client := range c.Clients {
+		result = result && client.IsConnectionOpen()
+	}
+
+	return result
 }
 
 // Connect will create a connection to the message broker, by default
 // it will attempt to connect at v3.1.1 and auto retry at v3.1 if that
 // fails.
 func (c *Client) Connect() mqtt.Token {
+	token := token.NewTokens()
+
 	for name, client := range c.Clients {
-		client.Connect()
-		log.Printf("trying connect %s", name)
+		token.Append(name, client.Connect())
 	}
 
-	return nil
+	return token
 }
 
 // Disconnect will end the connection with the server, but not before waiting
