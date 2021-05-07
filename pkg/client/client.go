@@ -17,11 +17,25 @@ func NewClient(opts *mqtt.ClientOptions) mqtt.Client {
 	return &Client{}
 }
 
+func NewClientWithOptions(opts map[string]*mqtt.ClientOptions) mqtt.Client {
+	clients := make(map[string]mqtt.Client)
+
+	for name, opt := range opts {
+		clients[name] = mqtt.NewClient(opt)
+	}
+
+	return &Client{
+		Clients: clients,
+	}
+}
+
 // Client handles an array for clients to the available cluster
 // by using this client you can control all availabe client at the same time.
 // you also can use each client separately by their cluster name.
 type Client struct {
 	Clients map[string]mqtt.Client
+
+	logger log.Logger
 }
 
 // IsConnected returns a bool signifying whether
@@ -39,7 +53,11 @@ func (*Client) IsConnectionOpen() bool {
 // Connect will create a connection to the message broker, by default
 // it will attempt to connect at v3.1.1 and auto retry at v3.1 if that
 // fails
-func (*Client) Connect() mqtt.Token {
+func (c *Client) Connect() mqtt.Token {
+	for name, client := range c.Clients {
+		client.Connect()
+		log.Printf("trying connect %s", name)
+	}
 	return nil
 }
 
