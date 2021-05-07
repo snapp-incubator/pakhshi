@@ -1,6 +1,8 @@
 package client
 
 import (
+	"log"
+
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 )
 
@@ -54,7 +56,7 @@ func (*Client) IsConnectionOpen() bool {
 func (c *Client) Connect() mqtt.Token {
 	for name, client := range c.Clients {
 		client.Connect()
-		c.logger.Printf("trying connect %s", name)
+		log.Printf("trying connect %s", name)
 	}
 
 	return nil
@@ -68,7 +70,7 @@ func (*Client) Disconnect(quiesce uint) {
 
 // Publish will publish a message with the specified QoS and content
 // to the specified topic.
-// Returns a token to track delivery of the message to the broker
+// Returns a token to track delivery of the message to the broker.
 func (*Client) Publish(topic string, qos byte, retained bool, payload interface{}) mqtt.Token {
 	return nil
 }
