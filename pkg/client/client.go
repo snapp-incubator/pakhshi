@@ -1,8 +1,6 @@
 package client
 
 import (
-	"log"
-
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 )
 
@@ -10,11 +8,13 @@ import (
 // it uses the servers array for finding out about the clusters and also use
 // their host name to name them.
 func NewClient(opts *mqtt.ClientOptions) mqtt.Client {
+	servers := make(map[string]*mqtt.ClientOptions)
+
 	for _, server := range opts.Servers {
-		log.Println(server.Host)
+		servers[server.Host] = opts
 	}
 
-	return &Client{}
+	return NewClientWithOptions(servers)
 }
 
 func NewClientWithOptions(opts map[string]*mqtt.ClientOptions) mqtt.Client {
@@ -30,12 +30,10 @@ func NewClientWithOptions(opts map[string]*mqtt.ClientOptions) mqtt.Client {
 }
 
 // Client handles an array for clients to the available cluster
-// by using this client you can control all availabe client at the same time.
+// by using this client you can control all avaialbe client at the same time.
 // you also can use each client separately by their cluster name.
 type Client struct {
 	Clients map[string]mqtt.Client
-
-	logger log.Logger
 }
 
 // IsConnected returns a bool signifying whether
@@ -45,19 +43,20 @@ func (*Client) IsConnected() bool {
 }
 
 // IsConnectionOpen return a bool signifying whether the client has an active
-// connection to mqtt broker, i.e not in disconnected or reconnect mode
+// connection to mqtt broker, i.e not in disconnected or reconnect mode.
 func (*Client) IsConnectionOpen() bool {
 	return false
 }
 
 // Connect will create a connection to the message broker, by default
 // it will attempt to connect at v3.1.1 and auto retry at v3.1 if that
-// fails
+// fails.
 func (c *Client) Connect() mqtt.Token {
 	for name, client := range c.Clients {
 		client.Connect()
-		log.Printf("trying connect %s", name)
+		c.logger.Printf("trying connect %s", name)
 	}
+
 	return nil
 }
 
