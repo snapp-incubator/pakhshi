@@ -1,4 +1,5 @@
 # pakhshi
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/pakhshi/golang?label=status&logo=github&style=flat-square)
 
 ## Introduction
 Consider you have an array of brokers but you want to publish and subscribe on all of them at the same time.
