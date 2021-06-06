@@ -1,0 +1,25 @@
+---
+project_name: pakhshi
+
+release:
+  github:
+    owner: 1995parham
+    name: pakhshi
+
+checksum: {}
+
+builds:
+  - binary: pakhshi
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+    main: ./cmd/pakhshi/main.go
+
+archives:
+  - id: binary
+    format: binary
+  - id: default
+    format: tar.gz
