@@ -12,9 +12,12 @@ import (
 )
 
 const (
+	// TopicFlag used with cobra to read the topic flag from user.
 	TopicFlag = "topic"
-	QoSFlag   = "qos"
+	// QoSFlag used with cobra to read the qos flag from user.
+	QoSFlag = "qos"
 
+	// Timeout for disconnecting from brokers.
 	Timeout = 10
 )
 

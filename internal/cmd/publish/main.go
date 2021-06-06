@@ -8,11 +8,16 @@ import (
 )
 
 const (
-	TopicFlag    = "topic"
-	QoSFlag      = "qos"
+	// TopicFlag used with cobra to read the topic flag from user.
+	TopicFlag = "topic"
+	// QoSFlag used with cobra to read the qos flag from user.
+	QoSFlag = "qos"
+	// RetainedFlag used with cobra to read the retained flag from user.
 	RetainedFlag = "retained"
-	PayloadFlag  = "payload"
+	// PayloadFlag used with cobra to read the payload flag from user.
+	PayloadFlag = "payload"
 
+	// Timeout for disconnecting from brokers.
 	Timeout = 10
 )
 
