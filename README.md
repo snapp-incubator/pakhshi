@@ -3,6 +3,7 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/pakhshi/lint?label=lint&logo=github&style=flat-square)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/pakhshi/test?label=test&logo=github&style=flat-square)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/pakhshi/release?label=release&logo=github&style=flat-square)
+[![Go Reference](https://pkg.go.dev/badge/github.com/1995parham/pakhshi.svg)](https://pkg.go.dev/github.com/1995parham/pakhshi)
 
 ## Introduction
 
