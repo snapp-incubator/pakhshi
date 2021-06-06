@@ -1,5 +1,5 @@
 ---
-name: golang
+name: lint
 on:
   - push
 jobs:
@@ -12,11 +12,4 @@ jobs:
         uses: golangci/golangci-lint-action@v2
         with:
           version: latest
-  go:
-    name: test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-go@v2
-      - run: docker-compose up -d
-      - run: go test ./...
+          args: --enable-all
