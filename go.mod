@@ -6,4 +6,5 @@ require (
 	github.com/eclipse/paho.mqtt.golang v1.3.4
 	github.com/pterm/pterm v0.12.22
 	github.com/spf13/cobra v1.1.3
+	github.com/stretchr/testify v1.7.0 // indirect
 )
