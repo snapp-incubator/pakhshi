@@ -48,6 +48,7 @@ func (ts *Tokens) WaitTimeout(d time.Duration) bool {
 
 	for _, t := range ts.tokens {
 		t := t
+
 		go func() {
 			defer wg.Done()
 			result.Store(result.Load().(bool) && t.WaitTimeout(d))
@@ -55,6 +56,7 @@ func (ts *Tokens) WaitTimeout(d time.Duration) bool {
 	}
 
 	done := make(chan struct{})
+
 	go func() {
 		defer close(done)
 		wg.Wait()
@@ -94,7 +96,11 @@ func (es Errors) Error() string {
 	result := ""
 
 	for _, e := range []error(es) {
-		result += e.Error()
+		if result == "" {
+			result = e.Error()
+		} else {
+			result = fmt.Sprintf("%s,%s", result, e.Error())
+		}
 	}
 
 	return result
@@ -104,7 +110,13 @@ func (ts *Tokens) Error() error {
 	errors := make([]error, 0, len(ts.tokens))
 
 	for name, token := range ts.tokens {
-		errors = append(errors, fmt.Errorf("%s: %w", name, token.Error()))
+		if token.Error() != nil {
+			errors = append(errors, fmt.Errorf("%s: %w", name, token.Error()))
+		}
+	}
+
+	if len(errors) == 0 {
+		return nil
 	}
 
 	return Errors(errors)
