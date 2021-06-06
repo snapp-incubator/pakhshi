@@ -1,10 +1,6 @@
 package publish
 
 import (
-	"os"
-	"os/signal"
-	"syscall"
-
 	"github.com/1995parham/pakhshi/pkg/client"
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	"github.com/pterm/pterm"
@@ -43,11 +39,11 @@ func main(cfg Config) {
 		return
 	}
 
-	c.Publish(cfg.Topic, cfg.QoS, cfg.Retained, cfg.Payload)
+	if token := c.Publish(cfg.Topic, cfg.QoS, cfg.Retained, cfg.Payload); token.Wait() && token.Error() != nil {
+		pterm.Error.Println("mqtt publish failed:", token.Error().Error())
 
-	quit := make(chan os.Signal, 1)
-	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
-	<-quit
+		return
+	}
 
 	c.Disconnect(Timeout)
 }

@@ -41,9 +41,13 @@ func main(cfg Config) {
 
 	pterm.Info.Printf("subscribing on %s\n", cfg.Topic)
 
-	c.Subscribe(cfg.Topic, cfg.QoS, func(c mqtt.Client, m mqtt.Message) {
+	if token := c.Subscribe(cfg.Topic, cfg.QoS, func(c mqtt.Client, m mqtt.Message) {
 		pterm.Info.Printf("received: %s\n", string(m.Payload()))
-	})
+	}); token.Wait() && token.Error() != nil {
+		pterm.Error.Println("mqtt subcription failed:", token.Error().Error())
+
+		return
+	}
 
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
