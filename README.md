@@ -18,6 +18,28 @@ broker so you will publish on all cluster and your client is connected to one th
 This library use [paho](https://github.com/eclipse/paho.mqtt.golang) in the background so you can easily change your applications to use this instead of paho.
 It trying to implement all paho interfaces.
 
+## Examples
+
+The following example shows how to subscribe on the same topic on two brokers.
+
+```go
+opts := mqtt.NewClientOptions()
+opts.AddBroker("tcp://127.0.0.1:1883")
+opts.AddBroker("tcp://127.0.0.1:1884")
+
+c := client.NewClient(opts)
+
+if token := c.Connect(); token.Wait() && token.Error() != nil {
+  assert.NoError(t, token.Error())
+}
+
+if token := c.Subscribe("hello", 0, func(c mqtt.Client, m mqtt.Message) {
+  ch <- string(m.Payload())
+}); token.Wait() && token.Error() != nil {
+  assert.NoError(t, token.Error())
+}
+```
+
 ## Credits
 
 Based on idea of [Ahmad Anvari](https://github.com/anvari1313).
