@@ -3,7 +3,7 @@ project_name: pakhshi
 
 release:
   github:
-    owner: 1995parham
+    owner: snapp-incubator
     name: pakhshi
 
 checksum: {}
