@@ -1,7 +1,7 @@
 package publish
 
 import (
-	"github.com/1995parham/pakhshi/pkg/client"
+	"github.com/snapp-incubator/pakhshi/pkg/client"
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"

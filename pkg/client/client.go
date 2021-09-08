@@ -3,8 +3,8 @@ package client
 import (
 	"net/url"
 
-	"github.com/1995parham/pakhshi/pkg/token"
 	mqtt "github.com/eclipse/paho.mqtt.golang"
+	"github.com/snapp-incubator/pakhshi/pkg/token"
 )
 
 // NewClient creates a pakhshi client based on given paho options.

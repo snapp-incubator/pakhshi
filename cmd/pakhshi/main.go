@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/1995parham/pakhshi/internal/cmd"
+	"github.com/snapp-incubator/pakhshi/internal/cmd"
 	"github.com/pterm/pterm"
 )
 

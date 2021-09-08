@@ -3,8 +3,8 @@ package cmd
 import (
 	"os"
 
-	"github.com/1995parham/pakhshi/internal/cmd/publish"
-	"github.com/1995parham/pakhshi/internal/cmd/subscribe"
+	"github.com/snapp-incubator/pakhshi/internal/cmd/publish"
+	"github.com/snapp-incubator/pakhshi/internal/cmd/subscribe"
 	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
 )

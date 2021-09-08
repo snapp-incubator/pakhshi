@@ -6,7 +6,6 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/1995parham/pakhshi.svg)](https://pkg.go.dev/github.com/1995parham/pakhshi)
 [![Codecov](https://img.shields.io/codecov/c/gh/1995parham/pakhshi?logo=codecov&style=flat-square)](https://codecov.io/gh/1995parham/pakhshi)
 
-
 ## Introduction
 
 Consider you have an array of brokers but you want to publish and subscribe on all of them at the same time.
