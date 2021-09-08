@@ -3,8 +3,8 @@ package main_test
 import (
 	"testing"
 
-	"github.com/snapp-incubator/pakhshi/pkg/client"
 	mqtt "github.com/eclipse/paho.mqtt.golang"
+	"github.com/snapp-incubator/pakhshi/pkg/client"
 	"github.com/stretchr/testify/assert"
 )
 

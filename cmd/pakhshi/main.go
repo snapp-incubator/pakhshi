@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/snapp-incubator/pakhshi/internal/cmd"
 	"github.com/pterm/pterm"
+	"github.com/snapp-incubator/pakhshi/internal/cmd"
 )
 
 func main() {

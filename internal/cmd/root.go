@@ -3,9 +3,9 @@ package cmd
 import (
 	"os"
 
+	"github.com/pterm/pterm"
 	"github.com/snapp-incubator/pakhshi/internal/cmd/publish"
 	"github.com/snapp-incubator/pakhshi/internal/cmd/subscribe"
-	"github.com/pterm/pterm"
 	"github.com/spf13/cobra"
 )
 

@@ -5,9 +5,9 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/snapp-incubator/pakhshi/pkg/client"
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	"github.com/pterm/pterm"
+	"github.com/snapp-incubator/pakhshi/pkg/client"
 	"github.com/spf13/cobra"
 )
 
