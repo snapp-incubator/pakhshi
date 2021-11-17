@@ -4,8 +4,8 @@ import (
 	"os"
 
 	"github.com/pterm/pterm"
-	"github.com/snapp-incubator/pakhshi/internal/cmd/publish"
-	"github.com/snapp-incubator/pakhshi/internal/cmd/subscribe"
+	"github.com/snapp-incubator/pakhshi/example/cli/internal/cmd/publish"
+	"github.com/snapp-incubator/pakhshi/example/cli/internal/cmd/subscribe"
 	"github.com/spf13/cobra"
 )
 

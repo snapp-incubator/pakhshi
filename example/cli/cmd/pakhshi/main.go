@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/pterm/pterm"
-	"github.com/snapp-incubator/pakhshi/internal/cmd"
+	"github.com/snapp-incubator/pakhshi/example/cli/internal/cmd"
 )
 
 func main() {
