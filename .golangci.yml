@@ -1,0 +1,12 @@
+---
+linters:
+  enable-all: true
+  disable:
+    # it should improve to support more known patterns
+    - varnamelen
+    - ireturn
+    # deprecated linters
+    - maligned
+    - scopelint
+    - golint
+    - interfacer
