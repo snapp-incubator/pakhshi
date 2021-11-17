@@ -16,7 +16,7 @@ builds:
       - windows
     goarch:
       - amd64
-    main: ./cmd/pakhshi/main.go
+    main: ./example/cli/cmd/pakhshi/main.go
 
 archives:
   - id: binary
