@@ -1,8 +1,7 @@
 # pakhshi
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/snapp-incubator/pakhshi/lint?label=lint&logo=github&style=flat-square)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/snapp-incubator/pakhshi/test?label=test&logo=github&style=flat-square)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/snapp-incubator/pakhshi/release?label=release&logo=github&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/snapp-incubator/pakhshi/lint.yaml?label=lint&logo=github&style=flat-square&branch=main)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/snapp-incubator/pakhshi/test.yaml?label=test&logo=github&style=flat-square&branch=main)
 [![Go Reference](https://pkg.go.dev/badge/github.com/snapp-incubator/pakhshi.svg)](https://pkg.go.dev/github.com/snapp-incubator/pakhshi)
 [![Codecov](https://img.shields.io/codecov/c/gh/snapp-incubator/pakhshi?logo=codecov&style=flat-square)](https://codecov.io/gh/snapp-incubator/pakhshi)
 
